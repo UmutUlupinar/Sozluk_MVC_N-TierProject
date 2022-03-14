@@ -4,3 +4,4 @@
 This is a MVC N-Tier project
 NOT Finished.
 Will update regularly.
+When have completed, website will published.
