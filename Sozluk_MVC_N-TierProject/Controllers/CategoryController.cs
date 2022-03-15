@@ -1,5 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +14,7 @@ namespace Sozluk_MVC_N_TierProject.Controllers
     public class CategoryController : Controller
     {
 
-        CategoryManager cm = new CategoryManager();
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
         // GET: Category
         public ActionResult Index()
         {
@@ -20,7 +23,7 @@ namespace Sozluk_MVC_N_TierProject.Controllers
 
         public ActionResult GetCategoryList()
         {
-            var categoryvalues = cm.GetAllBl();
+            var categoryvalues = cm.GetList();
             return View(categoryvalues);
         }
 
@@ -31,7 +34,9 @@ namespace Sozluk_MVC_N_TierProject.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category p)
         {
-            cm.InsertCategoryBl(p);
+            CategoryValidator cv = new CategoryValidator();
+            ValidationResult results=cv.Validate(p);
+            cm.AddCategory(p);
             return RedirectToAction("GetCategoryList");
         }
 
