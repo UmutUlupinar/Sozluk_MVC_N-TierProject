@@ -36,8 +36,19 @@ namespace Sozluk_MVC_N_TierProject.Controllers
         {
             CategoryValidator cv = new CategoryValidator();
             ValidationResult results=cv.Validate(p);
-            cm.AddCategory(p);
-            return RedirectToAction("GetCategoryList");
+            if (results.IsValid) 
+            {
+                cm.AddCategory(p);
+                return RedirectToAction("GetCategoryList");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
 
 
