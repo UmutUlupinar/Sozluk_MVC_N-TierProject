@@ -46,6 +46,7 @@ namespace Sozluk_MVC_N_TierProject.Controllers
             
         }
 
+
         public ActionResult DeleteCategory(int id)
         {
             var categoryvalue=cm.GetByID(id);
@@ -53,6 +54,23 @@ namespace Sozluk_MVC_N_TierProject.Controllers
             //sonraki id ler için güncelle eklenecektir.
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var categoryvalue=cm.GetByID(id);
+            return View(categoryvalue);
+        }
+
+
+        [HttpPost]
+        public ActionResult EditCategory(Category category)
+        {
+            cm.CategoryUpdate(category);
+            return RedirectToAction("Index");
+        }
+
+
 
     }
 }
