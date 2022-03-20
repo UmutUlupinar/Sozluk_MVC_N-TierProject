@@ -16,12 +16,15 @@ namespace BusinessLayer.ValidationRules
             RuleFor(a => a.WriterSurname).NotEmpty().WithMessage("Açıklama giriniz");
             RuleFor(a => a.WriterAbout).NotEmpty().WithMessage("Hakkında bilgisi giriniz");
             RuleFor(a => a.WriterMail).NotEmpty().WithMessage("Mail adresi giriniz");
-            RuleFor(a => a.WriterName).MinimumLength(3).WithMessage("İsim en az 3 en fazla 20 karakter olmalı");
-            RuleFor(a => a.WriterName).MaximumLength(20).WithMessage("İsim en az 3 en fazla 20 karakter olmalı");
-            RuleFor(a => a.WriterMail).MinimumLength(3).WithMessage("İsim en az 3 en fazla 20 karakter olmalı");
-            RuleFor(a => a.WriterMail).MaximumLength(20).WithMessage("Mail en az 3 en fazla 20 karakter olmalı");
+            RuleFor(a => a.WriterTitle).NotEmpty().WithMessage("Yazar unvan bilgisi giriniz");
+            RuleFor(a => a.WriterTitle).MinimumLength(2).WithMessage("İsim en az 2 en fazla 40 karakter olmalı");
+            RuleFor(a => a.WriterTitle).MaximumLength(40).WithMessage("Unvan en az 2 en fazla 40 karakter olmalı");
+            RuleFor(a => a.WriterName).MinimumLength(3).WithMessage("Unvan en az 3 en fazla 40 karakter olmalı");
+            RuleFor(a => a.WriterName).MaximumLength(40).WithMessage("İsim en az 3 en fazla 40 karakter olmalı");
+            RuleFor(a => a.WriterMail).MinimumLength(3).WithMessage("Mail en az 3 en fazla 40 karakter olmalı");
+            RuleFor(a => a.WriterMail).MaximumLength(40).WithMessage("Mail en az 3 en fazla 40 karakter olmalı");
             RuleFor(a => a.WriterSurname).MinimumLength(3).WithMessage("Soyisim en az 3 en fazla 20 karakter olmalı");
-            RuleFor(a => a.WriterSurname).MaximumLength(50).WithMessage("Soyisim en az 3 en fazla 50 karakter olmalı");
+            RuleFor(a => a.WriterSurname).MaximumLength(20).WithMessage("Soyisim en az 3 en fazla 20 karakter olmalı");
         }
 
     }

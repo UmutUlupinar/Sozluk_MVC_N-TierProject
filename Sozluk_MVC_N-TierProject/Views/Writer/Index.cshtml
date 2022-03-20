@@ -28,15 +28,18 @@
 <html>
 <body class="hold-transition sidebar-mini">
 
-        <!-- Content Wrapper. Contains page content -->
-       
-            <!-- Content Header (Page header) -->
+        <!-- Content Wrapper. Contains page content -->   
+           
+    <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1>Yazarlar</h1>
-                        </div>                       
+                        </div>
+                        <div class="col-sm-6">
+                    <a href="/Writer/AddWriter" class="btn btn-success">Yeni yazar ekle</a> 
+                        </div>
                     </div>
                 </div>
             </section>
@@ -51,7 +54,7 @@
                                 <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                                     <div class="card bg-light">
                                         <div class="card-header text-muted border-bottom-0">
-                                            Yazar
+                                            @item.WriterTitle
                                         </div>
                                         <div class="card-body pt-0">
                                             <div class="row">
@@ -75,11 +78,14 @@
                                                 <a href="#" class="btn btn-sm btn-primary">
                                                     <i class="fas fa-user"></i> Profili görüntüle
                                                 </a>
+                                                <td><a href="/Writer/DeleteWriter/@item.WriterID" class="btn btn-danger">Sil</a></td>
+                                                <td><a href="/Writer/UpdateWriter/@item.WriterID" class="btn btn-success">Güncelle</a></td>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             }
+
 
                         </div>
                     </div>
